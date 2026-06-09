@@ -1,0 +1,32 @@
+{
+  "name": "opx-cli-domus",
+  "version": "0.1.0",
+  "private": false,
+  "description": "CLI et interface locale pour piloter des ampoules TP-Link Tapo.",
+  "license": "MIT",
+  "bin": {
+    "domus": "./bin/domus.js"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "domus": "node ./bin/domus.js",
+    "doctor": "./doctor.sh",
+    "install:domus": "./installer.sh",
+    "update:domus": "./update.sh"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "next": "^16.2.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
+  },
+  "devDependencies": {}
+}

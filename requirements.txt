@@ -1,0 +1,1 @@
+python-kasa @ git+https://github.com/ZeliardM/python-kasa.git@2640c2848a8f671ca29f92ab01d1c0b7385a2d6a
