@@ -133,12 +133,15 @@ export default function Home() {
   const onlineCount = devices.filter((device) => device.controllable).length;
   const needsSetup = setup && !setup.configured;
 
-  async function refresh({ preferCache = true } = {}) {
+  async function refresh({ preferCache = true, fast = true } = {}) {
     setLoading(true);
     setError("");
     try {
-      const cacheQuery = preferCache ? "&cache=1" : "";
-      const response = await fetch(`/api/lights?fast=1${cacheQuery}`, { cache: "no-store" });
+      const params = new URLSearchParams();
+      if (fast) params.set("fast", "1");
+      if (preferCache) params.set("cache", "1");
+      const query = params.toString();
+      const response = await fetch(`/api/lights${query ? `?${query}` : ""}`, { cache: "no-store" });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Detection impossible");
       setDevices(data.devices || []);
@@ -194,7 +197,7 @@ export default function Home() {
       setSetupMessage(scan ? "Configuration enregistree. Scan du reseau..." : "Configuration enregistree.");
 
       if (scan) {
-        const scanData = await refresh({ preferCache: false });
+        const scanData = await refresh({ preferCache: false, fast: false });
         const foundDevices = (scanData?.devices || []).filter((device) => device.controllable);
         if (foundDevices.length) {
           const saveResponse = await fetch("/api/setup", {
