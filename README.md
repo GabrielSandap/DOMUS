@@ -10,7 +10,7 @@ no DOMUS cloud service. Your Tapo credentials stay on your machine in the local
 ## Supported System
 
 DOMUS is developed and tested on Gabriel's setup: macOS, Node.js 20+, and
-Python 3. Other environments, especially Windows/PC setups, are not officially
+Python 3.11+. Other environments, especially Windows/PC setups, are not officially
 maintained here. Ports and compatibility fixes are welcome from contributors
 who want to support them.
 
@@ -19,7 +19,7 @@ who want to support them.
 ```bash
 git clone https://github.com/GabrielSandap/OPX_CLI_DOMUS.git
 cd OPX_CLI_DOMUS
-./installer.sh
+./install
 npm run dev
 ```
 
@@ -40,7 +40,7 @@ On first launch, the app shows the Tapo onboarding flow:
 
 - Node.js `>=20.9.0`
 - npm
-- Python 3 with `venv`
+- Python `>=3.11` with `venv`
 - A TP-Link/Tapo account with a real password
 - Tapo devices connected to the same local network
 
@@ -50,12 +50,12 @@ TP-Link/Tapo password in the Tapo app before setting up DOMUS.
 ## Useful Scripts
 
 ```bash
-./installer.sh # installs Node/Python dependencies, creates .env if needed, tests the build
+./install     # installs requirements, links the domus CLI globally, checks readiness
 ./update.sh    # updates the repo and dependencies
 ./doctor.sh    # checks local requirements and configuration
 ```
 
-`./install.sh` is also available as an alias.
+`./install.sh` and `./installer.sh` are also available as aliases.
 
 The same commands are available through npm:
 
@@ -85,7 +85,7 @@ The npm variant also works:
 npm run domus -- list
 ```
 
-To expose the `domus` command globally in your terminal:
+The installer exposes the `domus` command globally with `npm link`. To relink it manually:
 
 ```bash
 npm link

@@ -13,7 +13,7 @@
     "start": "next start",
     "domus": "node ./bin/domus.js",
     "doctor": "./doctor.sh",
-    "install:domus": "./installer.sh",
+    "install:domus": "./install",
     "update:domus": "./update.sh"
   },
   "engines": {

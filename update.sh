@@ -15,17 +15,5 @@ else
   printf 'Pas de depot Git detecte, on met seulement les dependances a jour.\n'
 fi
 
-say "Dependances Node"
-npm install
-
-say "Dependances Python"
-if [ ! -d ".venv" ]; then
-  python3 -m venv .venv
-fi
-.venv/bin/python -m pip install --upgrade pip
-.venv/bin/python -m pip install -r requirements.txt
-
-say "Build"
-npm run build
-
-printf '\nDOMUS est a jour. Lance ./doctor.sh si quelque chose semble bizarre.\n'
+say "Installation et verification"
+exec "$ROOT_DIR/install"
