@@ -17,8 +17,8 @@ who want to support them.
 ## Quick Install
 
 ```bash
-git clone https://github.com/GabrielSandap/OPX_CLI_DOMUS.git
-cd OPX_CLI_DOMUS
+git clone https://github.com/GabrielSandap/DOMUS.git
+cd DOMUS
 ./install
 npm run dev
 ```
@@ -172,4 +172,4 @@ This repo is prepared for public sharing:
 - Personal IP addresses are not hard-coded.
 - `domus-scenes.json` starts empty.
 
-Public repo: https://github.com/GabrielSandap/OPX_CLI_DOMUS
+Public repo: https://github.com/GabrielSandap/DOMUS
